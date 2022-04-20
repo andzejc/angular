@@ -1,0 +1,54 @@
+<h1>{{label}}</h1>
+<app-table [mockCars]="mockCars" (labelEvent)="onLabelEvent($event)"></app-table>
+<div class="container">
+  <br>
+  <h4>
+    <mark>Modelis:</mark>
+  </h4>
+  <span>{{car.brand}} </span>
+  <span>{{car.model}}</span>
+  <div class="alert alert-success">
+    <p>Masinos charakteristikos: </p>
+    <ul>
+      <li>Maksimalus greitis: <strong>{{car.maxSpeed}}</strong></li>
+      <li>Masinos spalva: <strong>{{car.colors.wheels}}</strong></li>
+      <li>Salono spalva: <strong>{{car.colors.salon}}</strong></li>
+      <li>Ratlankiu spalva: <strong>{{car.colors.wheels}}</strong></li>
+    </ul>
+  </div>
+  <form (submit)="addOption(option.value)">
+    <div class="form-group">
+      <label for="kompletacija">Privalumai</label>
+      <input type="text" name="kompletacija" id="kompletacija"
+             placeholder="Papildykite komplektacija" class="form-control" #option>
+      <button class="btn btn-outline-success mt-2" type="submit">Prideti</button>
+    </div>
+  </form>
+  <button class="btn btn-outline-dark mb-3 mt-3" (click)="edit()">Ijungti redagavima</button>
+  <div *ngIf="isEditable">
+    <h4>Redaguoti masina</h4>
+    <div class="form-group">
+      <input [(ngModel)]="car.model" class="form-control mb-3" type="text" placeholder="Modelis">
+      <input [(ngModel)]="car.brand"  class="form-control mb-3" type="text" name="" id="brand" placeholder="Brendas">
+      <input [(ngModel)]="car.maxSpeed"  class="form-control mb-3" type="text" name="" id="maxSpeed" placeholder="Maksimalus greitis">
+      <input [(ngModel)]="car.colors.car"  class="form-control mb-3" type="text" name="" id="carColor" placeholder="masinos splava">
+      <input [(ngModel)]="car.colors.salon"  class="form-control mb-3" type="text" name="" id="salonColor" placeholder="salono splava">
+    </div>
+  </div>
+  <div>
+    <h4>Masinos privalumai</h4>
+    <div class="alert alert-warning">
+      <ul>
+        <li *ngFor="let opt of car.options; let i = index;">
+          {{i + 1}} {{opt}}
+          <fa-icon [icon]="faXmark" (click)="deleteOption(opt)"></fa-icon>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <h4>Pasirinkite automobili</h4>
+  <button class="btn btn-danger" (click)="changeCar(carTypes.AUDI)">Audi</button>
+  <button class="btn btn-success m-2" (click)="changeCar(carTypes.BMW)">BMW</button>
+  <button class="btn btn-info" (click)="changeCar(carTypes.OPEL)">Opel</button>
+</div>
+

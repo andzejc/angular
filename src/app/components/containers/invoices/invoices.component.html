@@ -1,0 +1,65 @@
+<div class="container">
+  <button class="btn btn-outline-success mb-2 mt-2" data-bs-toggle="modal" data-bs-target="#invoiceModal">Prideti
+    saskaita
+  </button>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th *ngFor="let label of tableLabels" scope="col">{{label}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let invoice of invoices; let i = index">
+      <td>{{i + 1}}</td>
+      <td>{{invoice.amount}}</td>
+      <td>{{invoice.category}}</td>
+      <td>{{invoice.isBankTransfer}}</td>
+      <td>{{invoice.data}}</td>
+      <td>{{invoice.additionalInfo}}</td>
+      <td>{{invoice.paymentType}}</td>
+      <td>
+        <button class="btn btn-outline-info me-2" (click)="onEdit(invoice.id)" data-bs-toggle="modal" data-bs-target="#invoiceModal">Redaguoti</button>
+        <button class="btn btn-outline-danger" (click)="onDelete(invoice.id)">Istrinti</button>
+      </td>
+    </tr>
+    </tbody>
+
+  </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="invoiceModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="container-sm">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Sukurti/Redaguoti saskaita</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form class="form-group" [formGroup]="invoiceForm">
+            <div class="row">
+              <label for="amount">Amount:</label>
+              <input class="form-control col-2" type="text" id="amount" formControlName="{{form.AMOUNT}}">
+              <label for="paymentType">Payment Type:</label>
+              <input class="form-control col-2" type="text" id="paymentType" formControlName="{{form.PAYMENT_TYPE}}">
+              <label for="date">Date:</label>
+              <input class="form-control col-md-2" type="data" id="date" formControlName="{{form.DATE}}">
+              <label for="category">Category:</label>
+              <input class="form-control col-md-4" type="text" id="category" formControlName="{{form.CATEGORY}}">
+              <label for="addInfo">Addition info:</label>
+              <input class="form-control col-md-4" type="text" id="addInfo" formControlName="{{form.ADDITIONAL_INFO}}">
+              <label for="isBankTransfer">Bank transfer:</label>
+              <input class="form-control col-md-4" type="text" id="isBankTransfer"
+                     formControlName="{{form.IS_BANK_TRANSFER}}">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Uzdaryti</button>
+          <button type="button" class="btn btn-primary" (click)="onSubmit()">Issaugoti saskaita</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

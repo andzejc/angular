@@ -1,0 +1,71 @@
+{
+  "posts": [
+    {
+      "amount": "test",
+      "category": "test",
+      "date": "test",
+      "isBankTransfer": "test",
+      "paymentType": "test",
+      "additionalInfo": "test",
+      "id": 2
+    },
+    {
+      "amount": "test",
+      "category": "test",
+      "date": "test",
+      "isBankTransfer": "test",
+      "paymentType": "test",
+      "additionalInfo": "test",
+      "id": 3
+    },
+    {
+      "amount": "test",
+      "category": "test",
+      "date": "test",
+      "isBankTransfer": "test",
+      "paymentType": "test",
+      "additionalInfo": "test",
+      "id": 4
+    },
+    {
+      "amount": "5000",
+      "category": "Busines",
+      "date": "2010-10-10",
+      "isBankTransfer": "True",
+      "paymentType": "Bank payment",
+      "additionalInfo": "none",
+      "id": 5
+    },
+    {
+      "amount": "1111",
+      "category": "tttttttt",
+      "date": "2020-12-12",
+      "isBankTransfer": "false",
+      "paymentType": "qqqqqqqqq",
+      "additionalInfo": "dddddddd",
+      "id": 6
+    },
+    {
+      "amount": "222222",
+      "category": "55555",
+      "date": "444444",
+      "isBankTransfer": "7777777",
+      "paymentType": "33333",
+      "additionalInfo": "66666",
+      "id": 7
+    },
+    {
+      "amount": "sd",
+      "category": "sdsd",
+      "date": "sdsd",
+      "isBankTransfer": "sdsd",
+      "paymentType": "sdsd",
+      "additionalInfo": "sd",
+      "id": 8
+    }
+  ],
+  "comments": [],
+  "profile": {
+    "name": "typicode"
+  }
+}

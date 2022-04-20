@@ -1,0 +1,15 @@
+<div class="container">
+  <form class="form-group" [formGroup]="customerForm" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <label for="name">Name:</label>
+      <input class="form-control col-md-4" type="text" id="name" formControlName="{{form.NAME}}">
+      <label for="last-name">LastName:</label>
+      <input class="form-control col-md-4" type="text" id="last-name" formControlName="{{form.LAST_NAME}}">
+      <label for="email">Email:</label>
+      <input class="form-control col-md-4" type="text" id="email" formControlName="{{form.EMAIL}}">
+      <label for="age">Age:</label>
+      <input class="form-control col-md-4" type="text" id="age" formControlName="{{form.AGE}}">
+      <button [disabled]="!customerForm.valid" class="btn btn-outline-success mt-3">Submit</button>
+    </div>
+  </form>
+</div>
